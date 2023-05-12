@@ -1,0 +1,26 @@
+package day14.api.thread.ex02;
+
+public class ThreadTest implements Runnable {
+
+	private int num = 0; //멤버변수?
+
+	@Override
+	public void run() {
+		
+		for(int i = 1; i <= 10; i++) {
+			
+			
+			num++; //10까지 증가 됨.
+			
+			try {
+				Thread.sleep(1000); //1초
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+			
+		}
+	}
+	
+	
+	
+}

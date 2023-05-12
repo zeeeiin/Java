@@ -1,0 +1,1 @@
+package Day10.abstract_.bad;

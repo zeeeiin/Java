@@ -1,0 +1,206 @@
+package quiz01;
+
+import java.util.Random;
+
+public class Casher {
+	/*
+	과일가게 캐셔 알바
+	암산을 못해서 거스름돈을 권종별로 얼마 거슬러줄지 계산하는 프로그램만들기 
+
+
+	시제는 정해져있음(카드단말기 X, 현금결제) - 접근제어자 관련내용 아니에요.
+	 int[] coinUnit = {10000, 5000, 1000, 500, 100, 50, 10};
+	 int[] coin     = {2, 4, 0, 5, 5, 5, 5};
+
+	 과일가게 과일과 가격은 각 배열의 index끼리 일치
+	 String[] fruit = {"사과", "메론", "바나나", "딸기", "수박", "블루베리", "참외", "포도", "배"};
+	 int[] price = {4990, 7890, 3990, 14990, 17990, 9990, 1990, 24990, 4590};
+
+	 MainClass, 부가 Class 두개로 만들었습니다. 
+
+
+	 1. 생성자의 매개변수를 통해 금액 10만원 입력하기(고객이 계산하기 위해 10만원을 낸다.라는 개념)
+
+	 2. 메서드 3가지를 이용해서 아래와 같이 출력해주세요.
+
+	  account - int
+	  시제를 정산하는 메서드를 만들어주세요.
+
+	  receipt - void
+	  과일 영수증 만드는 메서드입니다.
+	  주어진 과일 배열을 무작위로 바꾸고, 앞의 5개만 출력해주세요.
+	  receipt 메서드 내에 calculate 메서드를 실행해주세요.
+
+
+	  calculate - void 매개변수 int money, int total
+	  거스름돈을 구하는 메서드입니다.
+
+
+	  기존에 수업시간에 배운 것과 달리 보유한 지폐와 동전 수량이 정해져있습니다.
+	  Ex) 30000원을 거슬러 줘야하면 주어진 시제에서는 10000원권 3장이 불가하며 
+				10000권 2장과 5000원권 2장으로 거슬러 줘야합니다.
+	  만약 시제가 거스름돈보다 부족하면 오른쪽, 많으면 왼쪽과 같이 나오게 해주세요.
+
+
+	 */
+
+	//생성자 - 매개변수를 통해 10만원 받기
+	Casher(int money){
+		this.money = money;
+	}
+
+	//받은 돈
+	int money;
+	//총액
+	int total;
+	//거스름돈
+	int sum;
+	//시제
+	int account;
+
+
+	public int getMoney() {
+		return money;
+	}
+
+	public void setMoney(int money) {
+		this.money = money;
+	}
+
+	public int getTotal() {
+		return total;
+	}
+
+	public void setTotal(int total) {
+		this.total = total;
+	}
+
+
+	//account - int
+	//시제를 정산하는 메서드를 만들어주세요.
+	//시제는 정해져있음(카드단말기 X, 현금결제)
+
+	int[] coinUnit = {10000, 5000, 1000, 500, 100, 50, 10};
+	int[] coin     = {2, 4, 0, 5, 5, 5, 5};
+
+	public int account() {
+
+		for(int i = 0; i < coin.length; i++) {
+			account += coin[i]*coinUnit[i];
+		}
+		System.out.println("시제 : " + account + "원");
+		return account;
+	}
+
+
+	//receipt - void
+	//과일 영수증 만드는 메서드입니다.
+	//주어진 과일 배열을 무작위로 바꾸고, 앞의 5개만 출력해주세요.
+
+	//receipt 메서드 내에 calculate 메서드를 실행해주세요.
+	//과일가게 과일과 가격은 각 배열의 index끼리 일치
+
+	String[] fruit = {"사과", "메론", "바나나", "딸기", "수박", "블루베리", "참외", "포도", "배"};
+	int[] price = {4990, 7890, 3990, 14990, 17990, 9990, 1990, 24990, 4590};
+	int[] cart = new int[5];
+
+	public void receipt() {
+
+		System.out.println("========영수증========");
+
+		//랜덤객체 생성
+		Random rd = new Random();
+
+		//랜덤 과일 뽑기 	
+		for(int i = 0; i < cart.length; i++) {
+			cart[i] = rd.nextInt(9); 			//System.out.println(cart[i]);
+
+			//중복 제거(가 안되네) i--; 를 해봤는데 안돼서 랜덤 한 번 더 돌림
+			for(int j = 0; j < i; j++) {									
+				if(fruit[cart[i]].equals(fruit[cart[j]])) { 
+					cart[i] = rd.nextInt(9);  //cart[i] = price[j];
+					break;
+				}					
+			}
+
+			total += price[cart[i]]; //과일 총액
+			System.out.println(fruit[cart[i]] + " - " + price[cart[i]] + "원");
+
+		}
+
+		System.out.println("====================");
+		System.out.println("총액 : " + total + "원");		
+		System.out.println("====================");
+
+		calculate(money, total);
+
+	}
+	//calculate - void 매개변수 int money, int total
+	//거스름돈을 구하는 메서드입니다.
+	//기존에 수업시간에 배운 것과 달리 보유한 지폐와 동전 수량이 정해져있습니다.
+
+	//Ex) 30000원을 거슬러 줘야하면 주어진 시제에서는 10000원권 3장이 불가하며 
+	//	  10000권 2장과 5000원권 2장으로 거슬러 줘야합니다.
+	//만약 시제가 거스름돈보다 부족하면 오른쪽, 많으면 왼쪽과 같이 나오게 해주세요.
+
+	public void calculate(int money, int total) { 
+		//받은 돈, 총액
+		this.money = money;
+		this.total = total;
+
+		//거스름돈 : 받은 돈 - 총액
+		sum = money - total;
+
+		int[] bill = coin; //new int[coinUnit.length]; 거스름돈 배열
+
+		int[] coinUnit = {10000, 5000, 1000, 500, 100, 50, 10};
+		int[] coin     = {2, 4, 0, 5, 5, 5, 5};
+
+		//		for(int i = 0; i < coinUnit.length; i++) {
+		//			int bills = coinUnit[i];
+		//			bill[i] = money / bills;
+		//			money %= bills;				
+		//		}	
+		//		for(int j = 0; j < coinUnit.length; j++) {
+		//			if(total/coinUnit[j] > coin[j]) {
+		//				total = total % coinUnit[j];
+		//				System.out.println(coinUnit[j]+"원 : " + total/coinUnit[j] + "장");
+		//		
+		//		int[] sum2 = new int[7];
+		//		int k= 0;
+		//		for(int j = 0; j < sum2.length; j++) { //j--??
+		//			
+		//			sum2[j] = sum/coinUnit[j] ;
+		//			k = sum % coinUnit[j];		//			
+		//		}
+		//		if( sum < account ) { //33000 < 43000
+		//		for(int i = 0; i < coin.length; i++) {
+		//			if( coinUnit[i]*coin[i] < sum ) { //20000 < 33000
+		//				sum2 = sum - coinUnit[i]*coin[i];
+		//				System.out.println(coinUnit[i]+"원 : " + coin[i] + "장");
+		//
+		//			}
+		//		}
+		//	}
+
+
+		System.out.println("받은 돈 : " + money + "원");
+		System.out.println("거스름돈 : " + sum + "원"); // (받은 돈 - 총액)
+		System.out.println("======거스름돈 내역======");			
+
+		int sum2;
+
+		//거스름돈이 시제보다 적으면
+		if( sum < account ) { //33000 < 43000
+			for(int i = 0; i < coin.length; i++) {
+				while (coin[i] > 0 && sum >= coinUnit[i]) { // 코인이 남아있고 거스름돈이 코인 단위보다 클 때까지 반복
+					sum -= coinUnit[i];
+					coin[i]--;
+					System.out.println(coinUnit[i]+"원 : " + coin[i] + "장");				}
+			}
+		} else {
+			System.out.println("사장님 시제 보충해주세요!!!");
+		}
+
+	}
+}

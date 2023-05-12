@@ -1,0 +1,15 @@
+package Quiz22;
+
+public class RegexQuiz02 {
+
+	public static void main(String[] args) {
+		
+		String str = "123123-1231231 GS25(치킨마요) 4,400원";
+		String str2 = "123123-1231232 GS25(주부 18단) 5,000원";
+		
+		
+		
+		
+		
+	}
+}

@@ -1,0 +1,27 @@
+package quiz01;
+
+
+import java.util.Scanner;
+
+public class AAA {
+	
+	public static void main(String[] args) {
+		
+		
+	Scanner scan = new Scanner(System.in);
+	
+	System.out.print("> ");
+	int t = scan.nextInt();
+	int i = 1;
+			
+	System.out.print("출력수 ");
+	
+	while(t>=i) {
+		
+		if( i%3 ==0 || i%4 ==0) {
+			System.out.print(i);
+		}
+	break;
+	}
+}
+}

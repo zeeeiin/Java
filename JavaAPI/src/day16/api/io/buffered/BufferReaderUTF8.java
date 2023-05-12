@@ -1,0 +1,68 @@
+package day16.api.io.buffered;
+
+import java.io.BufferedReader;
+import java.io.FileInputStream;
+import java.io.FileReader;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.io.Reader;
+
+public class BufferReaderUTF8 {
+
+	public static void main(String[] args) {
+		
+		/*
+		 * 인코딩 = 파일이나 텍스트문서가 저장될 때 =>컴퓨터가 아는 이진수형태로 저장하는 형식	
+		 * 디코딩 = 컴퓨터가 아는 이진수 형태 => 인간이 알고 있는 문자형식으로 변경
+		 * (인코딩의 반대작업)
+		 * 
+		 * 인코딩 대표형식
+		 * 문자 인코딩 보통 UTF-8 (유니코드) vd EUC-KR
+		 * 파일인코딩 Base64(아스키코드)
+		 * 
+		 * 
+		 * InputStreamReader = 1byte 기반 파일을 => 2byte 기반으로 변경
+		 * 파일을 읽을 때 인코딩 형식을 함께 지정할 수 있다.
+		 * 
+		 * 2가지 방법
+		 * 1. 원본파일의 인코딩을 UTF-8로 변경 (근본적인 방법)
+		 * 2 파일의 인코딩 형식이 다르면 (한글)이 깨지게 되는데, 인코딩을 동일한 형태로 맞춰서 가지고 오면 된다.
+		 * 
+		 */
+		
+		
+		String path = "C:\\Users\\user\\Desktop\\course\\java\\file\\example.txt";
+		
+		//1바이트 기반의 문자나 파일을 읽어 들이는 형식
+		//InputStream fis = new FileInputStream(path); 
+		
+		//키보드 타입이 아니라 파일을 
+		//System.in =>  입력
+		//FileInputStream file로부터 입력이 들어오는 것.
+		//InputStream 타입이 뭐든 들어갈 수 있다.		
+		//Reader를 상속 받는다. 리더 타입에 저장 가능.
+		
+		//1바이트 기반 => 2바이트 형식으로 변경
+		//Reader rd = new InputStreamReader( fis, "UTF-8"); 		
+		
+		//2바이트 기반의 빠른 읽기
+		//BufferedReader br = new BufferedReader(rd);	
+		
+		
+		//위의 3가지를 한 줄로 써보자면
+		//BufferedReader br = new BufferedReader ( new InputStreamReader( new FileInputStream(path), "UTF-8"));
+		//1바이트 기반 파일을 빨리 읽을 수 있도록 2바이트로 바꿔주는데 UTF-8 방식으로 바꿔준다.
+		
+		try( BufferedReader br = new BufferedReader ( new InputStreamReader( new FileInputStream(path), "EUC-KR")); ) {
+						
+			String str;
+			while( (str = br.readLine()) != null) {
+				System.out.println(str);
+			}			
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}		
+		
+	}
+}

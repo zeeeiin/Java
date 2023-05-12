@@ -1,0 +1,55 @@
+package day16.api.io.buffered;
+
+import java.io.BufferedReader;
+import java.io.FileInputStream;
+import java.io.FileReader;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.io.Reader;
+
+public class BufferReaderUTF8 {
+
+	public static void main(String[] args) {
+		
+		/*
+		 * 인코딩 = 파일이나 텍스트문서가 저장될 때 =>ㄴ 컴퓨터가 아는 이진수형태로 저장하는 형식
+		 * 
+		 * 디코딩 = 컴퓨터가 아는 이진수 형태 => 인간이 알고 있는 문자형식으로 변경
+		 * (인코딩의 반대작업)
+		 */
+		
+		
+		String path = "C:\\Users\\user\\Desktop\\course\\java\\file\\example.txt";
+		
+		//1바이트 기반의 문자나 파일을 읽어 들이는 형식
+		InputStream fis = new FileInputStream(path); 
+		
+		//키보드 타입이 아니라 파일을 
+		//System.in =>  입력
+		//FileInputStream file로부터 입력이 들어오는 것.
+		//InputStream 타입이 뭐든 들어갈 수 있다.		
+		//Reader를 상속 받는다. 리더 타입에 저장 가능.
+		//1바이트 기반 => 2바이트 형식으로 변경
+		Reader rd = new InputStreamReader( fis, "UTF-8"); 
+		
+		
+		//2바이트 기반의 빠른 읽기
+		BufferedReader br = new BufferedReader(rd);
+		
+		
+		
+		
+		
+		try( BufferedReader br = new BufferedReader( new FileReader(path))) {
+						
+			String str;
+			while( (str = br.readLine()) != null) {
+				System.out.println(str);
+			}			
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}		
+		
+	}
+}

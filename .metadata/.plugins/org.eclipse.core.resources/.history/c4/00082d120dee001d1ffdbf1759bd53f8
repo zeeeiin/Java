@@ -1,0 +1,92 @@
+package Quiz21;
+
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.InputStreamReader;
+import java.io.Reader;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.stream.Stream;
+
+public class MainClass {
+
+	//지역명, 규모구분, 연도, 월, 분양 가격 -> 1행 x 4800개
+	/*
+	 * 1. 버퍼리더 이용해서 한 줄씩 읽습니다.
+	 * 
+	 * 2. split(",",5)  사용해 Data객체에 한 줄 단위로 저장하고
+	 * 	  => 배열의 최소크기 5로 보장, 구분자는 ,로 구분하겠다.는 의미
+	 * 
+	 * 3. List<Data>에 하나씩 추가한다.
+	 *    리드라인이 다 돌아갔다면 아마도 약 4500행..?
+	 *   
+	 * 4. 람다식을 이용해서
+	 * 	  지역 : 서울, 4분기 중 9~12월, 
+	 * 	  분양가격 : 2000이상인 객체만 뽑아서 새로운 리스트로 반환.
+	 * 
+	 */
+
+	String path = "C:\\Users\\user\\Desktop\\course\\data.cvs";
+
+	//버퍼리더 이용해서 한 줄씩 읽습니다.
+	BufferedReader br = new BufferedReader( new FileReader(path));
+
+	List<String> list = new ArrayList<>();
+
+	
+	
+	//split(",",5)  사용해 Data객체에 한 줄 단위로 저장
+	String[] data1 = path.split(",", 5);
+	
+	
+	public Data data = new Data() {
+		
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+	try {
+		String str = "";
+		while ( (str = br.readLine()) != null;) {
+			System.out.println(str);
+		}
+	} catch (Exception e) {
+		e.printStackTrace();
+	}
+	
+	list.add(str);
+
+	Stream<Data> stream =
+
+			( (region) -> "서울" ) ;
+	( (price) -> price > 2000 ) 
+
+
+	Data.stream.filter("서울");
+
+	collect ( Collect.toList());
+
+
+
+
+
+
+
+
+
+
+
+
+}

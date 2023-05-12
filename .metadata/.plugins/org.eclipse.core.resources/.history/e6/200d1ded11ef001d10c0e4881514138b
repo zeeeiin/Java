@@ -1,0 +1,15 @@
+package quiz01;
+
+public class CasherMain {
+
+	public static void main(String[] args) {
+		
+		Casher c = new Casher(100000);
+		
+		c.account();
+		c.receipt();
+		
+		
+	}
+	
+}

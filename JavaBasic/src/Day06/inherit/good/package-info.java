@@ -1,0 +1,1 @@
+package Day06.inherit.good;

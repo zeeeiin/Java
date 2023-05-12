@@ -1,0 +1,18 @@
+package day14.api.regex;
+
+public class RegexEx02 {
+
+	public static void main(String[] args) {
+		
+		/*
+		 * [0-9]{2, 4} 숫자 중 2~4개 연속된 형태
+		 * [0-9]{3} 0~9숫자 중 3개가 연속된 형태
+		 * [A-Z]+ A-Z 대문자 한 개 이상
+		 * [a-zA-Z]? 소문자나 대문자 중 알파벳이 0~1개 나오는 경우
+		 * [가-힣]* 한글 0회 이상 나올 수 있다.
+		 * 
+		 */
+		
+		
+	}
+}

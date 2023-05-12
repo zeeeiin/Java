@@ -1,0 +1,69 @@
+package Quiz21;
+
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.InputStreamReader;
+import java.io.Reader;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.stream.Stream;
+
+public class MainClass {
+
+	//지역명, 규모구분, 연도, 월, 분양 가격 -> 1행 x 4800개
+	/* 만약에 연계데이터(다른 회사에서 매 일정시에 전송되는 데이터)
+	 * 
+	 * 1. 버퍼리더 이용해서 한 줄씩 읽습니다.
+	 * 
+	 * 2. split(",",5) 사용해 Data객체에 한 줄 단위로 저장하고
+	 * 	  => 배열의 최소크기 5로 보장, 구분자는 ,로 구분하겠다.는 의미
+	 * 
+	 * 3. List<Data>에 하나씩 추가한다.
+	 *    리드라인이 다 돌아갔다면 아마도 약 4500행..?
+	 *   
+	 * 4. 람다식을 이용해서
+	 * 	  지역 : 서울, 4분기 중 9~12월, 
+	 * 	  분양가격 : 2000이상인 객체만 뽑아서 새로운 리스트로 반환.
+	 *    (연도랑 규모 부분빼고 위 부분만 변환)
+	 */
+
+	//파일 읽을 때 깨지거나 빈 공간이 있어서 읽어들어올때 주의해야한다.
+	
+	//복사된 파일 우클릭 속성 - 경로 확인 가능.
+	String path = "C:\\Users\\user\\Desktop\\course\\java\\work\\Quiz\\src\\Quiz21\\주택도시보증공사_전국 평균 분양가격.csv";
+
+	//버퍼리더 이용해서 한 줄씩 읽습니다.
+	BufferedReader br = new BufferedReader( new FileReader(path));
+	try(BufferedReader br = new BufferedReader( new FileReader(path))) { 
+		
+		String str = "";
+		while ( (str = br.readLine()) != null;) {
+			//System.out.println(str);
+			list.add(str);
+		}
+	} catch (Exception e) {
+		e.printStackTrace();
+	}
+	
+	
+	
+
+	Data data = new Data();
+	
+	
+	List<String> list = new ArrayList<>();
+	
+	
+	//split(",",5) 사용해 Data객체에 한 줄 단위로 저장
+	String[] save = path.split(",", 5);	
+	
+	//List<Data>에 하나씩 추가한다.
+	
+	
+	
+	Stream<String> stream = list.stream();
+	
+	
+
+
+}

@@ -1,0 +1,16 @@
+package Quiz22;
+
+public class RegexQuiz01 {
+
+	public static void main(String[] args) {
+		
+		String str = "안녕하세요? 점심은 4,500원 인데요. 커피가 무려 1600원 이에요. 디저트는 무려 14000이나 한답니다.";
+		
+		
+		
+		
+		
+		
+		
+	}
+}

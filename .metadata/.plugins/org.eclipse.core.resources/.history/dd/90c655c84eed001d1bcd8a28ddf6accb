@@ -1,0 +1,16 @@
+package day14.api.ramda.basic;
+
+public class Person {
+	
+	//일반클래스 - 고차함수를 가지고 있는 클래스
+						//Say01을 매개변수로 받는다. greeting은 대신 실행하는 것.
+	public void greeting(Say01 say01) { //()안에 함수적 인터페이스를 넣을 것.
+		say01.hello(); //대신 실행(이미 만들어져 있음)
+	}
+	
+
+	public void greeting(Say02 say02) {
+		
+	}
+	
+}

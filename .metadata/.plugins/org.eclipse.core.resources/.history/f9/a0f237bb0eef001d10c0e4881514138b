@@ -1,0 +1,16 @@
+package quiz01;
+
+public class C_Main {
+	
+	public static void main(String[] args) {
+		
+		
+		FruitStore c = new FruitStore(100000);
+		
+		c.settleAccounts();
+		c.receipt();
+		
+		
+	}
+
+}

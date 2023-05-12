@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<section name="NewWizardAction">
+	</section>
+	<section name="ImportExportAction">
+		<item key="ImportExportPage.STORE_SELECTED_EXPORT_WIZARD_ID" value="org.eclipse.ui.wizards.export.ZipFile"/>
+		<item key="ImportExportPage.STORE_SELECTED_IMPORT_WIZARD_ID" value="org.eclipse.ui.wizards.import.ExternalProject"/>
+		<list key="ImportExportPage.STORE_EXPANDED_EXPORT_CATEGORIES">
+			<item value="org.eclipse.ui.Basic"/>
+		</list>
+		<list key="ImportExportPage.STORE_EXPANDED_IMPORT_CATEGORIES">
+			<item value="org.eclipse.ui.Basic"/>
+		</list>
+	</section>
+	<section name="ZipFileExportWizard">
+		<item key="WizardZipFileResourceExportPage1.STORE_CREATE_STRUCTURE_ID" value="true"/>
+		<item key="WizardZipFileResourceExportPage1.STORE_COMPRESS_CONTENTS_ID" value="true"/>
+		<list key="WizardZipFileResourceExportPage1.STORE_DESTINATION_NAMES_ID">
+			<item value="C:\Users\user\Desktop\D24.zip"/>
+			<item value="C:\Users\user\Desktop\D23.zip"/>
+			<item value="C:\Users\user\Desktop\D22.zip"/>
+			<item value="C:\Users\user\Desktop\D21.zip"/>
+			<item value="C:\Users\user\Desktop\D20.zip"/>
+			<item value="C:\Users\user\Desktop\D19.zip"/>
+			<item value="C:\Users\user\Desktop\D18.zip"/>
+			<item value="C:\Users\user\Desktop\D17_.zip"/>
+			<item value="C:\Users\user\Desktop\D17.zip"/>
+			<item value="C:\Users\user\Desktop\D16.zip"/>
+			<item value="C:\Users\user\Desktop\D15Q.zip"/>
+			<item value="C:\Users\user\Desktop\D15.zip"/>
+			<item value="C:\Users\user\Desktop\D14Q.zip"/>
+			<item value="C:\Users\user\Desktop\D14.zip"/>
+			<item value="C:\Users\user\Desktop\D13.zip"/>
+			<item value="C:\Users\user\Desktop\D13Q.zip"/>
+			<item value="C:\Users\user\Desktop\D12.zip"/>
+			<item value="C:\Users\user\Desktop\D12Q.zip"/>
+			<item value="C:\Users\user\Desktop\D11Q.zip"/>
+			<item value="C:\Users\user\Desktop\D11.zip"/>
+		</list>
+	</section>
+</section>

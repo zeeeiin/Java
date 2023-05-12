@@ -1,0 +1,81 @@
+package day14.api.ramda.stream;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Random;
+import java.util.function.Function;
+import java.util.stream.Stream;
+
+public class MainClass02 {
+
+	public static void main(String[] args) {
+
+		/*
+		 * 람다함수의 구현 사용 문법
+		 * Predicate - 매개변수가 하나 있고, boolean형 반환 형태
+		 * Consumer - 매개변수 하나 받고, void형 메서드(forEach)
+		 * Function - 매개변수 여러개 받고, 반환은 1개 - 임의의 값.
+		 */
+
+
+
+		List<Integer> list  = new ArrayList<>();
+		Random ran = new Random();
+
+		for(int i = 0; i < 100; i++) {
+
+			list.add( ran.nextInt(100) +1 ); //1~100까지
+		}
+
+		System.out.println( list.toString() );
+
+
+		//중간처리 함수들
+		//distinct() - 중복제거
+		Stream<Integer> stream = list.stream();				
+		stream = stream.distinct(); //distinct() - 리턴이 스트림 정수형타입.
+		stream.forEach( (a) -> System.out.print(a + " ")); //최종함수
+		//stream안의 내용을 출력한 것.
+
+		list.stream().distinct().forEach( (a) -> System.out.print( a + " ")); //반환 string 타입
+
+		System.out.println("\n---------------------------------------------------------");
+
+
+		//sort() 정렬
+		list.stream().distinct().sorted().forEach( (a)  -> System.out.print( a + " ") );;
+
+		//filter() - 리턴에 true값만 남기고 필터링해주는 기능
+		//Predicate 모형은 실제로는 boolean타입으로 반환한다.
+		list.stream().distinct().filter( (a) ->  true ); // {return true;} );
+
+		System.out.println("\n---------------------------------------------------------");
+
+		//filter() - 리턴에 true값만 남기고 나는 짝수인 값만 필터링 하고 싶다면.. == 짝수만
+		list.stream().distinct().filter( (a) ->  a % 2 == 0 ).sorted().forEach( a -> System.out.print(a + " "));
+																			 //매개변수가 하나면 생략 가능
+		System.out.println("\n---------------------------------------------------------");
+
+		//map() - 반환에 정의된 값으로 완전히 새로운 스트림을 반환한다.
+		//새로운 배열로 반환하는 map
+		list.stream().map( (a) -> {
+			
+			String str;
+			if(a % 2 == 0) {
+				str = "짝수";
+			} else {
+				str = "홀수";
+			}			
+			return str;
+		} );
+			//객체타입으로 반환하는 모형
+			
+
+	
+
+
+
+
+
+	}
+}

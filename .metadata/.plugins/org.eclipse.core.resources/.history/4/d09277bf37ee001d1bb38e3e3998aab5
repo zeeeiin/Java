@@ -1,0 +1,103 @@
+package Quiz22;
+
+import java.util.Arrays;
+import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
+public class RegexQuiz02 {
+
+	public static void main(String[] args) {
+		
+		String str = "123123-1231231 GS25(치킨마요) 4,400원";
+		String str2 = "123123-1231232 GS25(주부18단) 5,000원";
+		
+		String Pattern1 = "\\d{6}-\\d{7}"; //123~~  \\d{6}-\\d{7}
+		String Pattern2 = "[A-Z]+\\d{2}";
+		String Pattern3 = "\\(+[가-힣]*+[0-9]+[가-힣]*+\\)";
+		String Pattern4 = "[0-9,]+[가-힣]";
+		
+		//str 찾는 작업
+		Matcher m1 = Pattern.compile(Pattern1).matcher(str);
+		Matcher m2 = Pattern.compile(Pattern2).matcher(str);
+		Matcher m3 = Pattern.compile(Pattern3).matcher(str);
+		Matcher m4 = Pattern.compile(Pattern4).matcher(str);
+		
+		System.out.println("----------------------------");
+		
+		
+		while(m1.find()) {			
+			System.out.println(m1.group());
+		}		
+		while(m2.find()) {			
+			System.out.println(m2.group());
+		}
+		while(m3.find()) {			
+			System.out.println(m3.group());
+		}
+		while(m4.find()) {			
+			System.out.println(m4.group());
+		}
+		
+		System.out.println("----------------------------");
+		
+		
+		//이걸 한번 더 반복하거나..
+		Matcher m5 = Pattern.compile(Pattern1).matcher(str2);
+		Matcher m6 = Pattern.compile(Pattern2).matcher(str2);
+		Matcher m7 = Pattern.compile(Pattern3).matcher(str2);
+		Matcher m8 = Pattern.compile(Pattern4).matcher(str2);
+		
+		while(m5.find()) {			
+			System.out.println(m5.group());
+		}		
+		while(m6.find()) {			
+			System.out.println(m6.group());
+		}
+		while(m7.find()) {			
+			System.out.println(m7.group());
+		}
+		while(m8.find()) {			
+			System.out.println(m8.group());
+		}
+		
+		
+		System.out.println("----------------------------");
+		
+		List<String> list = Arrays.asList(str,str2);
+		
+		for(int i = 0; i < list.size(); i++) {
+			
+			String s = list.get(i);
+			Matcher t = Pattern.compile(Pattern1).matcher(s);
+			Matcher w = Pattern.compile(Pattern2).matcher(s);
+			Matcher x = Pattern.compile(Pattern3).matcher(s);
+			Matcher y = Pattern.compile(Pattern4).matcher(s);
+			
+			if(t.find() && w.find() && x.find() &&y.find() ) {
+				
+				System.out.println(t.group());
+				System.out.println(w.group());
+				System.out.println(x.group());
+				System.out.println(y.group());
+				
+			}
+			
+			
+			
+			
+			
+		}
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		 
+	}
+}

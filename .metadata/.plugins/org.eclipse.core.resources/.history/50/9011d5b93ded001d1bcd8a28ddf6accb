@@ -1,0 +1,118 @@
+package Quiz20;
+
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.Scanner;
+
+public class Test {
+
+
+	public static void main(String[] args) {
+
+		/*
+		 * 1. Date클래스를 이용해서 File경로에 하위폴더로 20230504file 폴더를 생성합니다
+		 * 2. 스캐너로 파일명을 입력받고 BufferedWriter를 이용해서 .txt파일을 생성합니다.
+		 * 3. 그만을 입력받을 때 까지 엔터를 포함해서 입력 받습니다.
+		 *    \r\n을 적절하게 이용해서 파일 출력을 완료 
+		 *    
+		 * 4. 파일을 다 썼다면 아무방법으로 읽어들여서 이클립스창에 출력.
+		 */
+
+		//Scanner scan = new Scanner(System.in);
+
+
+
+		//1번 날짜 폴더 생성
+		Date date = new Date();
+
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMdd");
+		String dd = sdf.format(date);		
+		System.out.println(dd);
+
+		String path = "C:\\Users\\user\\Desktop\\course\\java\\file\\" + dd + "file";		
+
+		Scanner scan = new Scanner(System.in);
+
+		try {
+
+			File name = new File(path);
+
+			if( name.exists() == false ) {
+				name.mkdir();
+				System.out.println("파일 생성 완료");
+
+			} else {
+				System.out.println("이미 폴더가 존재합니다.");
+			}	
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+
+		//(BufferedWriter bw = new BufferedWriter( new FileWriter(path2, true) ))
+		//String name2 = br.readLine();
+
+
+		//2번 입력받은 이름으로 txt파일 생성	
+		//(BufferedWriter bw = new BufferedWriter( new FileWriter(path2) ))
+
+		try {			
+
+			BufferedReader br = new BufferedReader( new InputStreamReader(System.in));
+			System.out.print("파일 명을 입력하세요 > ");		
+			String txtName = br.readLine(); //입력받음
+			String path2 = "C:\\Users\\user\\Desktop\\course\\java\\\\file\\" + txtName + ".txt" ; //이름.txt";
+
+			//File name2 = new File(path2);	
+
+			if( txtName.contains(path2) == false ) { //.exists()
+				//name2.mkdir();				
+				System.out.println("파일이 생성 되었습니다");
+			} else {
+				System.out.println("파일이 이미 존재합니다.");
+			}
+
+
+			//3번  그만을 입력받을 때까지 엔터를 포함해서 입력 받음
+			while(true) { //내용 입력
+
+				BufferedWriter bw2 = new BufferedWriter( new FileWriter(path2, true) );
+
+				System.out.print("파일내용을 입력하시오 > "); //입력
+				String sub = scan.nextLine(); //String str = "";				
+				bw2.write(sub + "\n");
+
+				if( sub.equals("그만")) { //== "그만"
+					break;
+				}					
+				bw2.close();
+			}
+
+			//4번 출력. finally를 시도해보았으나 잘 안돼서 이렇게 해결함.
+			BufferedReader br4 = new BufferedReader( new FileReader(path2) );
+
+			String result;				
+			while( (result = br4.readLine()) != null){
+				System.out.println(result);
+			}
+
+
+		} catch (Exception e) {
+			e.printStackTrace();
+
+		} 
+	}
+}
+
+
+
+}

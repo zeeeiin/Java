@@ -1,0 +1,51 @@
+package day14.api.ramda.basic;
+
+public class MainClass {
+
+	public static void main(String[] args) {
+		
+		//car의 run을 사용할 때마다 매번 다른 기능으로 사용해야한다면 => 익명 클래스를 사용할 수 있다.
+//		Car car = new Car() {
+//			
+//			@Override
+//			public void run() {
+//				System.out.println("익명객체로 생성된 car");
+//			}
+//		};
+//		
+//		car.run();
+//		
+//		Car car2 = new Car() {
+//			
+//			@Override
+//			public void run() {
+//				System.out.println("다른 내용의 익명객체로 생성된 car 생성");
+//			}
+//		};
+//		
+//		car2.run();
+		
+		
+		
+		Person p = new Person();
+		p.greeting( new Say01() { //()안에 say01를 구현하는 익명 객체를 바로 만들어서 넣을 있다.
+			
+			@Override
+			public void hello() {
+				System.out.println("hello 기능!");
+			}
+		}); 
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+	}
+}

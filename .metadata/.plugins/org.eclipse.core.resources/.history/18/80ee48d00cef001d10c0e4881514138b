@@ -1,0 +1,87 @@
+package quiz01;
+import java.util.Arrays;
+import java.util.Random;
+
+public class Casher_ {
+
+
+	private int account;
+
+	public Casher_(int initialAccount) {
+		this.account = initialAccount;
+	}
+
+	public void settleAccounts() {
+		System.out.println("정산을 시작합니다.");
+		System.out.println("현재 계좌 잔액: " + this.account + "원");
+		this.account = 0;
+		System.out.println("정산이 완료되었습니다.");
+	}
+
+	public void receipt(String[] fruits) {
+		System.out.println("영수증을 출력합니다.");
+		shuffleFruits(fruits);
+		for (int i = 0; i < 5; i++) {
+			System.out.println(fruits[i]);
+		}
+		int total = calculate(fruits);
+		System.out.println("총액: " + total + "원");
+		System.out.println("지불하신 금액: " + 100000 + "원");
+		int change = 100000 - total;
+		System.out.println("거스름돈: " + change + "원");
+		giveChange(change);
+	}
+
+	private void shuffleFruits(String[] fruits) {
+		Random rand = new Random();
+		for (int i = fruits.length - 1; i > 0; i--) {
+			int j = rand.nextInt(i + 1);
+			String temp = fruits[i];
+			fruits[i] = fruits[j];
+			fruits[j] = temp;
+		}
+	}
+
+	private int calculate(String[] fruits) {
+		int total = 0;
+		for (int i = 0; i < 5; i++) {
+			String fruit = fruits[i];
+			if (fruit.equals("apple")) {
+				total += 2000;
+			} else if (fruit.equals("banana")) {
+				total += 1500;
+			} else if (fruit.equals("orange")) {
+				total += 1000;
+			} else if (fruit.equals("kiwi")) {
+				total += 3000;
+			} else if (fruit.equals("mango")) {
+				total += 5000;
+			}
+		}
+		return total;
+	}
+
+	private void giveChange(int change) {
+		System.out.println("거스름돈을 계산합니다.");
+		int[] bills = {50000, 10000, 5000, 1000, 500, 100};
+		int[] counts = {5, 10, 10, 20, 20, 50};
+		for (int i = 0; i < bills.length; i++) {
+			int count = Math.min(change / bills[i], counts[i]);
+			change -= bills[i] * count;
+			counts[i] -= count;
+			System.out.println(bills[i] + "원권: " + count + "장, 남은 수량: " + counts[i] + "장");
+		}
+		if (change > 0) {
+			System.out.println("거스름돈이 부족합니다.");
+		} else if (Arrays.stream(counts).sum() < 50) {
+			System.out.println("지폐와 동전 수량이 부족합니다.");
+		} else {
+			System.out.println("거스름돈 계산이 완료되었습니다.");
+		}
+	}
+}
+
+
+
+
+}

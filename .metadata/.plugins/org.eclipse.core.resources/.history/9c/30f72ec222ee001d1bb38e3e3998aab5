@@ -1,0 +1,27 @@
+package quiz01;
+
+import java.util.Scanner;
+
+public class StringQuiz {
+	
+	public static void main(String[] args) {
+		
+		Scanner scan = new Scanner(System.in);
+		System.out.println("월 입력 >");
+		String month = scan.next();
+		System.out.println("일 입력 >");
+		String day = scan.next();
+				
+		System.out.println("=============================");
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+	}
+}

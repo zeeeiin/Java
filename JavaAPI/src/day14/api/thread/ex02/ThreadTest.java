@@ -1,0 +1,28 @@
+package day14.api.thread.ex02;
+
+public class ThreadTest implements Runnable {
+
+	private int num = 0; //멤버변수?
+
+	@Override
+	public synchronized void run() {
+		
+		for(int i = 1; i <= 10; i++) {			
+			
+			num++; //num이 0이라서 10까지 증가 됨.
+			
+			//모든 기능을 상속받고 있는 건 아니어서 스레드의 스테틱 메서드를 사용할 것			
+			//currentThread() 는 현재 스레드를 반환하는 기능.
+			System.out.println("================================");
+			System.out.println( "쓰레드명:" + Thread.currentThread().getName() );
+			System.out.println(num);
+			
+			try {
+				Thread.sleep(1000); //1초
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+			
+		}
+	}
+}

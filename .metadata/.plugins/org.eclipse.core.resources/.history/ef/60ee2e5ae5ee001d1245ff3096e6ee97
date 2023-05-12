@@ -1,0 +1,27 @@
+package day14.api.thread;
+
+public class MainClass {
+
+	public static void main(String[] args) {
+		
+		
+		//run 메서드를 그냥 실행하는게 아니라
+		//스레드 클래스를 쓰겠다고 따로 써야한다.
+		
+		//1. 작업 스레드로 사용할 객체 생성
+		ThreadTest test = new ThreadTest();
+		
+		//2. 스레드 클래스를 사용해서 작업스레드를 실행. thread - 다양한 작업을 하게 해주는 클래스
+		Thread thread = new Thread(test, "Tread_A");
+		thread.start();
+		
+		
+		
+		
+		
+		
+		
+		
+	}
+	
+}

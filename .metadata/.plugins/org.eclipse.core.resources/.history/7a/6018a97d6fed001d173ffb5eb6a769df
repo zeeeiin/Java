@@ -1,0 +1,39 @@
+package day14.api.ramda.stream;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Random;
+import java.util.Set;
+import java.util.stream.Collectors;
+
+public class MainClass03 {
+
+	public static void main(String[] args) {
+		
+		List<Integer> list  = new ArrayList<>();
+		Random ran = new Random();
+
+		for(int i = 0; i < 100; i++) {
+
+			list.add( ran.nextInt(100) +1 ); //1~100까지
+		}
+
+		System.out.println( list.toString() );
+		
+		
+		//최종집계 함수 collect()		
+		//Collectors.toList(); //collect타입 반환.
+		//list.stream().filter( a -> a % 3 == 0).collect( Collectors.toList());
+		                              //list 타입으로 변환 >>이 괄호()안에 들어가는 타입에 맞춰서 변환하는 것.
+		
+		List<Integer> newList = list.stream().filter( a -> a % 3 == 0).collect( Collectors.toList());		
+		System.out.println( newList.toString() ); //3의 배수를 필터링한 결과
+		
+		Set<Integer> newList2 = list.stream().filter( a -> a %3 == 0).collect( Collectors.toSet() ); //반환이 set 인티저 타입.
+		
+		
+		
+		
+		
+	}
+}

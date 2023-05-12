@@ -1,0 +1,26 @@
+package quiz01;
+
+public class ProLv0 {
+	
+	public static void main(Month[] args) {
+	
+		Month result = java(5);
+		
+		System.out.println(result);
+		
+		
+	} //main
+	
+	static Month java(int a) {
+			
+		Month s = "";
+		//자바자바자바
+		for(int i = 1; i <= a; i++) {
+			s += i % 2 == 0 ? "바" : "자";
+		}			
+		 return s;
+				
+	}	
+	
+
+}

@@ -1,0 +1,48 @@
+package day14.api.ramda.stream;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.function.Consumer;
+import java.util.stream.Stream;
+
+public class MainClass {
+
+	public static void main(String[] args) {
+		
+		List<String> list = new ArrayList<>();
+		
+		list.add("홍길동");
+		list.add("홍길자");
+		list.add("이순신");
+		list.add("신사임당");
+		list.add("홍길동");
+		
+		
+		//스트림 타입으로 변경
+		Stream<String> stream = list.stream();
+		
+		//stream. 해보면 람다기능들이 쭉 나온다.
+		
+		//stream.forEach(new Consumer()); //함수적 인터페이스 타입인데 직접 이런식으론 만들 수 없음
+		
+		stream.forEach(new Consumer<Stream >() {
+			//forEach가 값을 받아서 accept에 전달해 주는 형태
+			
+			@Override
+			public void accept(Stream t) {
+				System.out.println(t);
+				
+			}
+			
+			
+		});
+			
+			
+			
+		
+		
+		
+		
+		
+	}
+}

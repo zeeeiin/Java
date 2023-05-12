@@ -1,0 +1,26 @@
+package Quiz22;
+
+public class Product {
+
+	private String dya;
+	private String store;
+	private String greade;
+	private String detail;
+	private String price;
+	
+	public Product() {}
+		
+	public Product(String dya, String store, String greade, String detail, String price) {
+		super();
+		this.dya = dya;
+		this.store = store;
+		this.greade = greade;
+		this.detail = detail;
+		this.price = price;
+	}
+	
+	
+	
+	
+	
+}

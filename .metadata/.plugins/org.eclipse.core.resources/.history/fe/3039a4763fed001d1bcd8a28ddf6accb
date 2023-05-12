@@ -1,0 +1,28 @@
+package day16.api.io.buffered;
+
+import java.io.BufferedReader;
+import java.io.FileReader;
+
+public class BufferReaderUTF8 {
+
+	public static void main(String[] args) {
+		
+		
+		String path = "C:\\Users\\user\\Desktop\\course\\java\\file\\example.txt";
+		
+		try( BufferedReader br = new BufferedReader( new FileReader(path))) {
+			
+			
+			String str;
+			while( (str = br.readLine()) != null) {
+				System.out.println(str);
+			}
+			
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		
+	}
+}

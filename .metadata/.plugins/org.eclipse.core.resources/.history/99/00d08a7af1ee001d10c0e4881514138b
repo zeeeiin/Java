@@ -1,0 +1,30 @@
+package day14.api.thread;
+
+public class ThreadTest02 extends Thread {
+	//아무것도 지정하지 않아도 스레드 기능을 사용할 수 있다.
+
+	@Override
+	public void run() {
+
+		for(int i = 1; i <= 10; i++) {
+
+			System.out.println("스레드를 상속받은 클래스 실행:" + i); 
+			System.out.println("스레드의 이름:" + getName() ); //스레드의 이름 확인 가능
+			
+
+			try { //반복문 돌아갈 때마다 1초씩 멈춤
+				sleep(1000); //상속받은 sleep. 1000=1초
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+
+
+
+		}
+	}
+
+
+
+
+
+}
